@@ -12,27 +12,17 @@
 
 #   environment = "Staging/Production/Development" 
 
- resource "digitalocean_project" "selecao" {
-   name        = "Selecao"
+ resource "digitalocean_project" "Rancher" {
+   name        = "Rancher"
    description = "Projeto de maquinas com vms de candidatos"
    purpose     = "Web Application"
    environment = "Staging" 
    resources   = [
-         digitalocean_droplet.vm-01-candidato-01.urn,
-         digitalocean_droplet.vm-02-candidato-01.urn,
-         digitalocean_droplet.vm-03-candidato-01.urn,
-
-         digitalocean_droplet.vm-01-candidato-02.urn,
-         digitalocean_droplet.vm-02-candidato-02.urn,
-         digitalocean_droplet.vm-03-candidato-02.urn,
-
-         digitalocean_droplet.vm-01-candidato-03.urn,
-         digitalocean_droplet.vm-02-candidato-03.urn,
-         digitalocean_droplet.vm-03-candidato-03.urn,
-
-         digitalocean_droplet.vm-01-candidato-04.urn,
-         digitalocean_droplet.vm-02-candidato-04.urn,
-         digitalocean_droplet.vm-03-candidato-04.urn,
-
+         digitalocean_droplet.vm-01-k8s-master.urn,
+         digitalocean_droplet.vm-02-k8s-master.urn,
+         digitalocean_droplet.vm-03-k8s-master.urn,
+         digitalocean_droplet.vm-04-k8s-worker.urn,
+         digitalocean_droplet.vm-05-k8s-worker.urn,
+         digitalocean_droplet.vm-06-k8s-worker.urn,
      ]
  }

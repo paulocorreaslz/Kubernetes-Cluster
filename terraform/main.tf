@@ -9,8 +9,8 @@
 #################################
 # Cria droplet vm-candidato-01  #
 #################################
-resource "digitalocean_droplet" "vm-01-candidato-01" {
-  name               = "vm-01-candidato-01"
+resource "digitalocean_droplet" "vm-01-k8s-master" {
+  name               = "vm-01-k8s-master"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -18,16 +18,16 @@ resource "digitalocean_droplet" "vm-01-candidato-01" {
   backups            = true
   resize_disk        = false
   ipv6               = true
-  tags               = ["candidato-01"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
   ssh_keys = [
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
 # Cria droplet vm-02-candidato-01
-resource "digitalocean_droplet" "vm-02-candidato-01" {
-  name               = "vm-02-candidato-01"
+resource "digitalocean_droplet" "vm-02-k8s-master" {
+  name               = "vm-02-k8s-master"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -35,16 +35,16 @@ resource "digitalocean_droplet" "vm-02-candidato-01" {
   backups            = false
   resize_disk        = true
   ipv6               = true
-  tags               = ["candidato-01"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
   ssh_keys = [    
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
 # Cria droplet vm-03-candidato-01
-resource "digitalocean_droplet" "vm-03-candidato-01" {
-  name               = "vm-03-candidato-01"
+resource "digitalocean_droplet" "vm-03-k8s-master" {
+  name               = "vm-03-k8s-master"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -52,18 +52,18 @@ resource "digitalocean_droplet" "vm-03-candidato-01" {
   backups            = false
   resize_disk        = true
   ipv6               = true
-  tags               = ["candidato-01"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-01.id
   ssh_keys = [    
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
 #################################
 # Cria droplet vm-candidato-02  #
 #################################
-resource "digitalocean_droplet" "vm-01-candidato-02" {
-  name               = "vm-01-candidato-02"
+resource "digitalocean_droplet" "vm-04-k8s-worker" {
+  name               = "vm-04-k8s-worker"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -71,16 +71,16 @@ resource "digitalocean_droplet" "vm-01-candidato-02" {
   backups            = true
   resize_disk        = false
   ipv6               = true
-  tags               = ["candidato-02"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
   ssh_keys = [
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
 # Cria droplet vm-02-candidato-02
-resource "digitalocean_droplet" "vm-02-candidato-02" {
-  name               = "vm-02-candidato-02"
+resource "digitalocean_droplet" "vm-05-k8s-worker" {
+  name               = "vm-05-k8s-worker"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -88,16 +88,16 @@ resource "digitalocean_droplet" "vm-02-candidato-02" {
   backups            = false
   resize_disk        = true
   ipv6               = true
-  tags               = ["candidato-02"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
   ssh_keys = [    
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
 # Cria droplet vm-03-candidato-02
-resource "digitalocean_droplet" "vm-03-candidato-02" {
-  name               = "vm-03-candidato-02"
+resource "digitalocean_droplet" "vm-06-k8s-worker" {
+  name               = "vm-06-k8s-worker"
   image              = var.ubuntu18
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
@@ -105,10 +105,10 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
   backups            = false
   resize_disk        = true
   ipv6               = true
-  tags               = ["candidato-02"]
-  vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
+  tags               = ["rancher"]
+  #vpc_uuid           = digitalocean_vpc.vpc-candidato-02.id
   ssh_keys = [    
-    digitalocean_ssh_key.sshkeyselecao.fingerprint
+    digitalocean_ssh_key.sshkeypaulo.fingerprint
   ]
 }
 
@@ -124,10 +124,10 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   backups            = true
 #   resize_disk        = false
 #   ipv6               = true
-#   tags               = ["candidato-03"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
+#   tags               = ["carancher
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
 #   ssh_keys = [
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato3.fingerprint
 #   ]
 # }
@@ -142,10 +142,10 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   backups            = false
 #   resize_disk        = true
 #   ipv6               = true
-#   tags               = ["candidato-03"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
+#   tags               = ["carancher
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
 #   ssh_keys = [    
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato3.fingerprint
 #   ]
 # }
@@ -161,9 +161,9 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   resize_disk        = true
 #   ipv6               = true
 #   tags               = ["candidato-03"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-03.id
 #   ssh_keys = [    
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato3.fingerprint
 #   ]
 # }
@@ -181,9 +181,9 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   resize_disk        = false
 #   ipv6               = true
 #   tags               = ["candidato-04"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
 #   ssh_keys = [
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato4.fingerprint
 #   ]
 # }
@@ -199,9 +199,9 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   resize_disk        = true
 #   ipv6               = true
 #   tags               = ["candidato-04"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
 #   ssh_keys = [    
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato4.fingerprint
 #   ]
 # }
@@ -217,9 +217,9 @@ resource "digitalocean_droplet" "vm-03-candidato-02" {
 #   resize_disk        = true
 #   ipv6               = true
 #   tags               = ["candidato-04"]
-#   vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
+#   #vpc_uuid           = digitalocean_vpc.vpc-candidato-04.id
 #   ssh_keys = [    
-#     digitalocean_ssh_key.sshkeyselecao.fingerprint,
+#     digitalocean_ssh_key.sshkeypaulo.fingerprint,
 #     digitalocean_ssh_key.sshkeycandidato4.fingerprint
 #   ]
 # }
