@@ -14,7 +14,7 @@
 
  resource "digitalocean_project" "Rancher" {
    name        = "Rancher"
-   description = "Projeto de maquinas com vms de candidatos"
+   description = "Projeto de maquinas com vms de rancher"
    purpose     = "Web Application"
    environment = "Staging" 
    resources   = [
