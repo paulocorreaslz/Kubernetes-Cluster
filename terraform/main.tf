@@ -117,7 +117,7 @@ resource "digitalocean_droplet" "vm-07-haproxy" {
   name               = "vm-07-haproxy"
   image              = var.ubuntu18
   region             = "nyc3"
-  size               = var.s-2vcpu-2gb
+  size               = var.sta1vcpu1gb25hd
   private_networking = true
   backups            = false
   resize_disk        = true
