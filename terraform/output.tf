@@ -27,6 +27,6 @@ output "ip-ext-vm-06-k8s-worker" {
     value = digitalocean_droplet.vm-06-k8s-worker.ipv4_address   
 }
 
-output "ip-ext-vm-06-k8s-worker" {
+output "ip-ext-vm-07-haproxy" {
     value = digitalocean_droplet.vm-07-haproxy.ipv4_address   
 }
