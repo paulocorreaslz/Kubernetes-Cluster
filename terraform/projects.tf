@@ -14,7 +14,7 @@
 
  resource "digitalocean_project" "Rancher" {
    name        = "Rancher"
-   description = "Projeto de maquinas com vms de rancher"
+   description = "Projeto de maquinas com vms de kubernetes"
    purpose     = "Web Application"
    environment = "Staging" 
    resources   = [
@@ -24,5 +24,6 @@
          digitalocean_droplet.vm-04-k8s-worker.urn,
          digitalocean_droplet.vm-05-k8s-worker.urn,
          digitalocean_droplet.vm-06-k8s-worker.urn,
+         digitalocean_droplet.vm-07-haproxy.urn,
      ]
  }
