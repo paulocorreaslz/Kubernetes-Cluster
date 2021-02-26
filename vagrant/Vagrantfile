@@ -1,0 +1,29 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.provider "vm1" do |vm1|
+	vm1.memory = 2048
+  end
+
+  config.vm.define "vm1" do |vm1|
+	  vm1.vm.network "private_network", ip: "10.20.1.4"
+  end
+
+  config.vm.provider "vm2" do |vm2|
+    vm2.memory = 2048
+  end
+
+  config.vm.define "vm2" do |vm2|
+    vm2.vm.network "private_network", ip: "10.20.1.5"
+  end
+
+  config.vm.provider "vm3" do |vm3|
+    vm3.memory = 2048
+  end
+
+  config.vm.define "vm3" do |vm3|
+    vm3.vm.network "private_network", ip: "10.20.1.6"
+  end  
+  
+end
