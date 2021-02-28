@@ -15,7 +15,7 @@ resource "digitalocean_droplet" "vm-01-k8s-master" {
   region             = "nyc3"
   size               = var.s-2vcpu-2gb
   private_networking = true
-  backups            = true
+  backups            = false
   resize_disk        = false
   ipv6               = true
   tags               = ["kubernetes"]
