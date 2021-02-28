@@ -1,5 +1,6 @@
 ---
-    - hosts: all
+    - hosts: haproxy
       remote_user: root
       roles:
         - common
+        - haproxy
