@@ -12,8 +12,8 @@
 
 #   environment = "Staging/Production/Development" 
 
- resource "digitalocean_project" "Rancher" {
-   name        = "Rancher"
+ resource "digitalocean_project" "Kubernetes" {
+   name        = "Kubernetes"
    description = "Projeto de maquinas com vms de kubernetes"
    purpose     = "Web Application"
    environment = "Staging" 
