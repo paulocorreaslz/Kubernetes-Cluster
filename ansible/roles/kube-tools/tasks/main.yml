@@ -1,0 +1,30 @@
+---
+- name: update and install curl
+  become: yes
+  shell: "sudo apt-get update && sudo apt-get install -y apt-transport-https curl"
+
+- name: add key
+  become: yes
+  shell: "curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"
+
+- name: add sources
+  become: yes
+  template:
+    src: templates/kubernetes.j2
+    dest: /etc/apt/sources.list.d/kubernetes.list
+
+- name: apt update
+  become: yes
+  shell: "sudo apt-get update"
+
+- name: Install kube tools
+  become: yes
+  shell: "sudo apt-get install -y kubelet kubeadm kubectl"
+      
+
+- name: apt mark kube tools
+  become: yes
+  shell: "sudo apt-mark hold kubelet kubeadm kubectl"
+
+
+

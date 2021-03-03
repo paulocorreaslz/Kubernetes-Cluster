@@ -1,0 +1,14 @@
+---
+- name: Download Pip
+  become: yes
+  shell: "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
+  args:
+    chdir: /home/ubuntu
+    executable: /bin/bash
+
+- name: Install Pip
+  become: yes
+  shell: "python get-pip.py"
+  args:
+    chdir: /home/ubuntu
+    executable: /bin/bash

@@ -1,6 +1,4 @@
 ---
   - name: install haproxy
     become: yes
-    shell: "apt-get install haproxy -y"
-    tags:
-      [never, install-haproxy]
+    shell: "apt-get install haproxy -y"    

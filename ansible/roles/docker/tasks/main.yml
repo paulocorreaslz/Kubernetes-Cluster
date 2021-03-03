@@ -1,0 +1,29 @@
+---
+- name: Download and install docker  
+  shell: "curl -fsSL https://get.docker.com | sh"
+  args:
+    chdir: /home/ubuntu
+    executable: /bin/bash  
+
+- name: Alter user
+  become: yes  
+  shell: "usermod -aG docker ubuntu"
+
+- name: Download and install docker-compose
+  become: yes
+  shell: "curl -L \"https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose"
+  args:
+    chdir: /home/ubuntu
+    executable: /bin/bash
+
+- name: Alter docker-compose permission
+  become: yes
+  shell: "chmod +x /usr/local/bin/docker-compose"
+  args:  
+    executable: /bin/bash
+
+- name: Create symbolic link for docker-compose
+  file:
+    src: "/usr/local/bin/docker-compose"
+    name: "/usr/bin/docker-compose"
+    state: link
