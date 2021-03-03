@@ -1,0 +1,18 @@
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of the control-plane node running the following command on each as root:
+
+  kubeadm join ha-proxy:6443 --token 637lm9.4bmbars2b09rsb6r \
+    --discovery-token-ca-cert-hash sha256:fa6515559f830a72119aaaca9ac2b93694c1435be8f39cd5daa6f4e0ffcee0ee \
+    --control-plane --certificate-key 2494883de519a2bc63ce57d388c4ff17805a9e7451f06232218de42d8ea55906
+
+Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
+As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
+"kubeadm init phase upload-certs --upload-certs" to reload certs afterward.
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join ha-proxy:6443 --token 637lm9.4bmbars2b09rsb6r \
+    --discovery-token-ca-cert-hash sha256:fa6515559f830a72119aaaca9ac2b93694c1435be8f39cd5daa6f4e0ffcee0ee
