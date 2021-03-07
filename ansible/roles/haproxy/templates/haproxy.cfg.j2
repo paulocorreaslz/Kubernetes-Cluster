@@ -38,7 +38,7 @@ defaults
 
 frontend kubernetes
 	mode tcp
-	bind 45.55.58.164:6443
+	bind {{ ansible_ssh_host }}:6443
 	option tcplog
 	default_backend k8s-masters
 
@@ -47,5 +47,5 @@ backend k8s-masters
 	balance roundrobin
 	option tcp-check
 	server k8s-master-0 10.40.10.3:6443 check fall 3 rise 2
-	server k8s-master-1 10.40.10.6:6443 check fall 3 rise 2
+	server k8s-master-1 10.40.10.8:6443 check fall 3 rise 2
 	server k8s-master-2 10.40.10.7:6443 check fall 3 rise 2
